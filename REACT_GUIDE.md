@@ -164,3 +164,114 @@ function App() {
 2.  Η React εκτείνει τη συνάρτηση `App()` μέσα στο αρχείο `App.tsx`.
 3.  Η συνάρτηση `App` επιστρέφει το JSX: **`<ViteIntro />`**.
 4.  Η React βλέπει ότι πρέπει να φορτώσει το component **`ViteIntro`** και συνεχίζει τη διαδικασία, ζωγραφίζοντας το περιεχόμενο του `ViteIntro.tsx` στην οθόνη.
+
+## Class Components vs Functional Components
+
+Στο React, υπάρχουν δύο τρόποι να γράψουμε ένα component: ως **Class Component** (ο παλιός τρόπος) ή ως **Functional Component** (ο σύγχρονος τρόπος).
+
+**Για όλα τα νέα projects, χρησιμοποιούμε πάντα Functional Components.**
+
+---
+
+### Functional Components (Ο Σύγχρονος Τρόπος)
+
+Είναι απλές συναρτήσεις JavaScript. Είναι ο προτεινόμενος τρόπος γιατί είναι πιο σύντομοι, πιο ευανάγνωστοι και, με τη χρήση των **Hooks** (π.χ. `useState`), μπορούν να διαχειριστούν state και άλλες πολύπλοπες λειτουργίες.
+
+**Παράδειγμα:**
+```jsx
+import React from 'react';
+
+function MyComponent() {
+  return <h1>Hello from a Functional Component!</h1>;
+}
+
+export default MyComponent;
+```
+
+### Class Components (Ο Παλιός Τρόπος)
+
+Είναι κλάσεις της JavaScript που κληρονομούν από το `React.Component`. Χρησιμοποιούν τη μέθοδο `render()` για να επιστρέψουν JSX. Θα τα συναντήσετε κυρίως σε παλαιότερα projects.
+
+**Παράδειγμα:**
+```jsx
+import React, { Component } from 'react';
+
+class MyComponent extends Component {
+  render() {
+    return <h1>Hello from a Class Component!</h1>;
+  }
+}
+
+export default MyComponent;
+```
+
+### Γιατί να με ενδιαφέρουν τα Class Components;
+
+Παρόλο που δεν θα τα γράφετε συχνά, είναι χρήσιμο να τα αναγνωρίζετε για δύο λόγους:
+1.  **Συντήρηση Παλαιού Κώδικα:** Αν δουλέψετε σε ένα project που ξεκίνησε πριν το 2019, πιθανότατα θα είναι γεμάτο με Class Components.
+2.  **Error Boundaries:** Είναι μια προχωρημένη τεχνική για διαχείριση σφαλμάτων που, προς το παρόν, υλοποιείται μόνο με Class Components.
+
+**Συμπέρασμα:** Επικεντρωθείτε στο να μάθετε καλά τα **Functional Components και τα Hooks**. Είναι το παρόν και το μέλλον του React.
+
+## Δημιουργία Arrow Functional Component
+
+Αυτός είναι ο πιο σύγχρονος και διαδεδομένος τρόπος για να γράψετε ένα React component. Ας δούμε πώς δημιουργήσαμε το `ArrowFunctionalComponent.tsx`.
+
+**1. Δημιουργία Αρχείου:**
+Δημιουργήσαμε ένα νέο αρχείο: `src/components/ArrowFunctionalComponent.tsx`.
+
+**2. Γράφοντας τον Κώδικα:**
+Αντί για `function MyComponent()`, χρησιμοποιούμε τη σύνταξη `const MyComponent = () =>`.
+
+```typescript
+// src/components/ArrowFunctionalComponent.tsx
+
+import './ArrowFunctionalComponent.css';
+
+const ArrowFunctionalComponent = () => {
+    return (
+        <h1 className="text-center text-xl font-bold mt-12">
+            This is an Arrow Functional Component
+        </h1>
+    );
+};
+
+export default ArrowFunctionalComponent;
+```
+
+### Ανάλυση Κώδικα:
+
+*   `const ArrowFunctionalComponent = ...`: Δηλώνουμε μια σταθερά με το όνομα του component μας.
+*   `= () => { ... }`: Αυτή είναι η "arrow function". Το `()` παίρνει τα `props` (αν υπάρχουν) και το `{...}` περιέχει τη λογική του component.
+*   `return (...)`: Επιστρέφει το JSX που θα εμφανιστεί.
+*   `export default ArrowFunctionalComponent;`: Κάνει το component διαθέσιμο για να το χρησιμοποιήσουμε σε άλλα μέρη της εφαρμογής.
+
+Αυτή η δομή είναι πιο λιτή και θεωρείται πλέον το standard στη React κοινότητα.
+
+## Συντομεύσεις Emmet για Γρήγορο Γράψιμο
+
+Για να γράψετε HTML/JSX πιο γρήγορα, μπορείτε να χρησιμοποιήσετε τις συντομεύσεις Emmet. Απλώς γράψτε τη συντόμευση και πατήστε `Tab` ή `Enter`.
+
+*   **Δημιουργία Tag:**
+    *   `div` → `<div></div>`
+*   **Class:**
+    *   `p.my-class` → `<p class="my-class"></p>`
+*   **ID:**
+    *   `div#app` → `<div id="app"></div>`
+*   **Φώλιασμα (Nesting):**
+    *   `div>p` → `<div><p></p></div>`
+*   **Αδελφά Elements (Siblings):**
+    *   `h1+p` → `<h1></h1><p></p>`
+*   **Πολλαπλασιασμός:**
+    *   `li*3` → `<li></li><li></li><li></li>`
+*   **Περιεχόμενο:**
+    *   `h2{My Title}` → `<h2>My Title</h2>`
+
+**Παράδειγμα συνδυασμού:** `ul.list>li*3` μετατρέφεται σε:
+```html
+<ul class="list">
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+```
