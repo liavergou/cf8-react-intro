@@ -10,8 +10,7 @@
 import Layout from "./components/Layout.tsx";
 // import ClassComponentWithState from "./components/ClassComponentWithState.tsx";
 // import FunctionalComponentsWithState from "./components/FunctionalComponentsWithState.tsx";
-// import Counter from "./components/Counter.tsx";
-import CounterWithProps from "./components/CounterWithProps.tsx";
+import Counter from "./components/Counter.tsx";
 
 function App() {
 
@@ -42,8 +41,7 @@ function App() {
             {/*<FunctionalComponentsWithState/>*/}
 
             {/*<ClassComponentWithState/>*/}
-            {/*<Counter/>*/}
-            <CounterWithProps/>
+            <Counter/>
         </Layout>
 
     </>
