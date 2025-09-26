@@ -5,6 +5,7 @@
 // import FunctionalComponent from "./components/FunctionalComponent.tsx";
 // import ArrowFunctionalComponent from "./components/ArrowFunctionalComponent.tsx";
 import ArrowFunctionalComponentWithProps from "./components/ArrowFunctionalComponentWithProps.tsx";
+import ArrowFunctionalComponentWithPropsType from "./components/ArrowFunctionalComponentWithPropsType.tsx";
 
 function App() {
 
@@ -17,9 +18,11 @@ function App() {
         {/*<ArrowFunctionalComponent/>*/}
         <ArrowFunctionalComponentWithProps title = "Is an Arrow Functional Component With Props"/>
         <ArrowFunctionalComponentWithProps title = "2nd Title"/>
+        <ArrowFunctionalComponentWithPropsType
+            title = "Is an Arrow Functional Component With 2 Props"
+            description = "Lorem ipsum..........."
 
-
-
+            />
     </>
   )
 }

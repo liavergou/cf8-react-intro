@@ -8,7 +8,6 @@ const ArrowFunctionalComponentWithProps = ({title}: Props)=>{
         <>
             <h1 className="text-center text-xl font-bold mt-12">{title}</h1>
 
-
         </>
 
     )
