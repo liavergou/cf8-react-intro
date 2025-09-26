@@ -361,3 +361,69 @@ function App() {
   );
 }
 ```
+
+---
+
+# Διαχείριση Κατάστασης με το Hook `useState`
+
+Μέχρι τώρα, τα components μας ήταν στατικά. Έπαιρναν `props` και εμφάνιζαν κάτι. Τι γίνεται όμως όταν ένα component χρειάζεται να "θυμάται" πληροφορίες που αλλάζουν με τον χρόνο (π.χ. την τιμή ενός μετρητή, το περιεχόμενο μιας φόρμας);
+
+Εδώ έρχεται η έννοια του **State** (Κατάσταση).
+
+*   **Τι είναι το State:** Είναι η εσωτερική "μνήμη" ενός component. Είναι δεδομένα που το component διαχειρίζεται μόνο του.
+*   **Η Μαγεία του State:** Όταν η τιμή του state αλλάζει, η React αυτόματα ξανα-κάνει render το component για να εμφανίσει την αλλαγή.
+
+Ο βασικός τρόπος για να προσθέσουμε state σε ένα Functional Component είναι το **Hook** που ονομάζεται `useState`.
+
+### Πώς Δουλεύει το `useState`
+
+**1. Εισαγωγή (Import):**
+Πρώτα, πρέπει να το εισάγουμε από τη βιβλιοθήκη της React.
+```javascript
+import { useState } from 'react';
+```
+
+**2. Δήλωση του State:**
+Μέσα στο component μας, καλούμε το `useState` δίνοντάς του μια αρχική τιμή.
+```javascript
+const [count, setCount] = useState(0);
+```
+Αυτό μας επιστρέφει έναν πίνακα με δύο στοιχεία:
+*   `count`: Η τρέχουσα τιμή του state (ξεκινάει από την αρχική τιμή, δηλαδή `0`).
+*   `setCount`: Η **συνάρτηση** που χρησιμοποιούμε για να αλλάξουμε την τιμή του `count`.
+
+**3. Ενημέρωση του State:**
+Για να αλλάξουμε το state, **πάντα καλούμε τη συνάρτηση** που μας έδωσε το `useState`.
+```javascript
+// ΣΩΣΤΟ
+const increaseCount = () => {
+    setCount(count + 1); // Καλούμε τη συνάρτηση με τη νέα τιμή
+}
+
+// ΛΑΘΟΣ!
+const wrongIncrease = () => {
+    count = count + 1; // Ποτέ δεν αλλάζουμε το state απευθείας!
+}
+```
+
+**Παράδειγμα (Ο Μετρητής που έφτιαξες):**
+```jsx
+import React, { useState } from "react";
+
+const Counter = () => {
+    const [count, setCount] = useState(0);
+
+    const increaseCount = () => setCount(count + 1);
+    const decreaseCount = () => setCount(count - 1);
+    const resetCount = () => setCount(0);
+
+    return (
+        <>
+            <h1>Count is {count}</h1>
+            <button onClick={increaseCount}>Increase</button>
+            <button onClick={decreaseCount}>Decrease</button>
+            <button onClick={resetCount}>Reset</button>
+        </>
+    );
+}
+```
