@@ -44,8 +44,10 @@ function App() {
 
             {/*<ClassComponentWithState/>*/}
             {/*<Counter />*/}
+            <div className="flex space-x-8 justify-center">
             <CounterWithProps title="counter_1" minValue={0} maxValue={100} step={1}/>
             <CounterWithProps title="counter_2" minValue={10} maxValue={100} step={5}/>
+            </div>
 
         </Layout>
 

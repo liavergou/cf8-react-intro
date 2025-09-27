@@ -1,5 +1,6 @@
 import Footer from "./Footer.tsx";
 import Header from "./Header.tsx";
+import React from "react";
 
 
 
@@ -13,7 +14,7 @@ const Layout = ({children}:LayoutProps) =>{
         <>
             <Header/>
 
-            <div className="container.mx-auto.pt-24.min-h-[95vh]">
+            <div className="container mx-auto pt-24 min-h-[95vh]">
             {children}
             </div>
 

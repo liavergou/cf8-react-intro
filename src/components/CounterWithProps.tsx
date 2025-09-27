@@ -35,13 +35,17 @@ const CounterWithProps = ({
 
         return (
             <>
-                <h1 className="text-center text-2xl my-12">
+                {/*Για να βαλω τα κουμπια σε κολώνα*/}
+                <div className="flex flex-col items-center justify-center">
+
+                <h1 className="text-2xl mb-4">
                     {title} is <strong className={
                     count > previousCount ? "text-green-400" : "text-red-400"}>{count}</strong>
+                    {/*//αν Είναι μεγαλύτερο απο το previousCount τότε πράσινο, αλλιώς κόκκινο*/}
                 </h1>
 
-                {count === maxValue && <p className="text-center text-4xl p-2 text-red-700">Φτάσατε στο μέγιστο όριο!</p>}
-                <div className="text-center space-x-4">
+
+                <div className="space-x-4">
 
                     <button
                         className="bg-cf-dark-gray disabled:bg-cf-gray text-white py-2 px-4"
@@ -50,6 +54,7 @@ const CounterWithProps = ({
                     >
                         Increase (+{step})
                     </button>
+
 
                     <button
                         className="bg-cf-dark-gray disabled:bg-cf-gray text-white py-2 px-4"
@@ -60,14 +65,25 @@ const CounterWithProps = ({
                     </button>
 
                     <button
-                        className="bg-cf-dark-gray disabled:bg-cf-gray text-white py-2 px-4"
+                        className="bg-cf-dark-gray disabled:bg-cf-gray text-white py-2 px-4 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500"
                         onClick={resetCount}
                         disabled={count === minValue}
                     >
                         Reset
                     </button>
 
+
                 </div>
+
+                    <div className="h-12 mt-4">
+                        {count === maxValue &&
+                            <p className="text-2xl p-2 text-red-700">Φτάσατε στο μέγιστο όριο!</p>
+                        }
+                    </div>
+
+
+                </div>
+
             </>
         )
     }
